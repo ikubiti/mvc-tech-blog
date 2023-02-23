@@ -15,14 +15,10 @@ const seedDatabase = async () => {
   });
   console.log('\n----- USERS SEEDED -----\n');
 
-  await Posts.bulkCreate(postData, {
-    returning: true,
-  });
+  await Posts.bulkCreate(postData);
   console.log('\n----- BLOG POSTS SEEDED -----\n');
 
-  await Comments.bulkCreate(commentData, {
-    returning: true,
-  });
+  await Comments.bulkCreate(commentData);
   console.log('\n----- BLOG COMMENTS SEEDED -----\n');
 
   process.exit(0);
