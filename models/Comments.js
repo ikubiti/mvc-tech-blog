@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class Comments extends Model { }
 
-Posts.init(
+Comments.init(
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -12,7 +12,7 @@ Posts.init(
 			autoIncrement: true,
 		},
 		comment: {
-			type: DataTypes.STRING,
+			type: DataTypes.STRING(400),
 			allowNull: false,
 		},
 		dated_posted: {
@@ -37,7 +37,7 @@ Posts.init(
 	},
 	{
 		sequelize,
-		timestamps: true,
+		timestamps: false,
 		freezeTableName: true,
 		underscored: true,
 		modelName: 'comments',

@@ -2,61 +2,61 @@
 	{
 		"post_id": 1,
 		"comment": "This was quite an interesting module, for the first time, my front-end project was alive with live data and capable of providing useful information to end users.",
-		"user-id": 5
+		"user_id": 5
 	},
 	{
 		"post_id": 2,
 		"comment": "A nice introduction to web development, the concepts surrounding HTML were quite novel to me. I did level up my knowledge of HTML but I still have a long way to go though!",
-		"user-id": 6
+		"user_id": 6
 	},
 	{
 		"post_id": 3,
 		"comment": "MySQL is another unconventional programming paradigm to learn and it is a bit challenging to wrap my head around it. However, for a quirky language, it offers unprecedented power to the developer and assists us to create absolutely wonderful and productive applications.",
-		"user-id": 1
+		"user_id": 1
 	},
 	{
 		"post_id": 4,
 		"comment": "This piece greatly eased my ability to learn and use git to keep my applications version-controlled. Brilliant write up!!!",
-		"user-id": 3
+		"user_id": 3
 	},
 	{
 		"post_id": 5,
 		"comment": "As a budding developer, it's relatively easy to focus on the project and underrate the README file. This blog reminded me about its importance and introduced me to a standard implementation template.",
-		"user-id": 2
+		"user_id": 2
 	},
 	{
 		"post_id": 6,
 		"comment": "To suggest that Node.js powerful is an understatement. It comes as no surprise that it's powered by the most popular programming language in the world. It's been both challenging and fun working with Node.",
-		"user-id": 6
+		"user_id": 6
 	},
 	{
 		"post_id": 1,
 		"comment": "Working with API's was certainly interesting and it was curiously easy to comprehend.",
-		"user-id": 3
+		"user_id": 3
 	},
 	{
 		"post_id": 2,
 		"comment": "The HTML language is an unsung hero of web development, it certainly deserves more recognition for its role",
-		"user-id": 5
+		"user_id": 5
 	},
 	{
 		"post_id": 3,
 		"comment": "Learning MySQL is a great way to learn and use SQL and it opens endless possibilities.",
-		"user-id": 4
+		"user_id": 4
 	},
 	{
 		"post_id": 4,
 		"comment": "Git is a fundamental requirement for collaborative and personal software development. It's such a useful skill set to possess.",
-		"user-id": 2
+		"user_id": 2
 	},
 	{
 		"post_id": 5,
 		"comment": "I loved this template, it made preparing my project README files less challenging. This blog is a must read for all beginner developers.",
-		"user-id": 5
+		"user_id": 5
 	},
 	{
 		"post_id": 6,
 		"comment": "My journey with Node.js has been filled with a lot of wow moments, its power is unbelievable.",
-		"user-id": 1
+		"user_id": 1
 	}
 ]
