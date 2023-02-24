@@ -15,7 +15,7 @@ Comments.init(
 			type: DataTypes.STRING(400),
 			allowNull: false,
 		},
-		dated_posted: {
+		date_posted: {
 			type: DataTypes.DATE,
 			allowNull: false,
 			defaultValue: DataTypes.NOW,
