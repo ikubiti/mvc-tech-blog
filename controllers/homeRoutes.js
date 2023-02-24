@@ -34,11 +34,19 @@ router.get('/posts/:id', async (req, res) => {
           model: Users,
           attributes: ['name', 'email', 'username'],
         },
+        {
+          model: Comments,
+        },
       ],
     });
 
     const aPost = blogData.get({ plain: true });
-    console.log(aPost);
+    for (let i = 0; i < aPost.comments.length; i++) {
+      let comment = aPost.comments[i];
+      const { name } = await Users.findByPk(comment.user_id);
+      console.log(name);
+      comment.writer = name;
+    }
 
     res.render('posts', {
       ...aPost,

@@ -7,4 +7,14 @@
   <p>
     <button class="btn btn-primary">Fund this Project!</button>
   </p>
+
+    {{#if comments.length}}
+    <h3>Blog Comments:</h3>
+
+    {{#each comments as |comment|}}
+      <p>{{comment.comment}}</p>
+      <p>Posted on {{format_date date_posted}} by {{comment.writer}}</p>
+    {{/each}}
+  </div>
+  {{/if}}
 </div>
