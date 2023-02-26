@@ -32,7 +32,7 @@ router.get('/posts/:id', async (req, res) => {
       include: [
         {
           model: Users,
-          attributes: ['name', 'email', 'username'],
+          attributes: ['name', 'email', 'id'],
         },
         {
           model: Comments,
@@ -44,13 +44,13 @@ router.get('/posts/:id', async (req, res) => {
     for (let i = 0; i < aPost.comments.length; i++) {
       let comment = aPost.comments[i];
       const { name } = await Users.findByPk(comment.user_id);
-      console.log(name);
       comment.writer = name;
+      comment.isAllowed = comment.user_id === req.session.user_id;
     }
 
     res.render('posts', {
       ...aPost,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -67,8 +67,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log(user);
-
     res.render('dashboard', {
       ...user,
       logged_in: true

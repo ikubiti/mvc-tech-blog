@@ -1,5 +1,6 @@
 // save reference to DOM elements
 const newCommentEl = document.getElementById("addComment");
+const updateCommentEl = document.getElementById("updateComment");
 const cancelCommentEl = document.getElementById("cancel");
 const commentTextEl = document.querySelector('.comment-textarea');
 // Get the modal
@@ -9,6 +10,8 @@ const btnEl = document.getElementById("newComment");
 const okayEl = document.getElementById("okay");
 const modalErrorEl = document.getElementById("errorModal");
 const errorFeedbackEl = document.getElementById('commentError');
+// get the container for the comments
+const containerEl = document.querySelector(".container");
 
 // Process the submission of new comments
 newCommentEl.onclick = async (event) => {
@@ -26,6 +29,7 @@ newCommentEl.onclick = async (event) => {
 		comment: newComment,
 	};
 
+	// send the add new comment request
 	const response = await fetch('/api/comments/', {
 		method: 'POST',
 		headers: {
@@ -52,6 +56,8 @@ const displayError = (error) => {
 // close the modal
 const closeModal = () => {
 	commentTextEl.value = '';
+	newCommentEl.style.display = "inline-block";
+	updateCommentEl.style.display = "none";
 	modalEl.style.display = "none";
 };
 
@@ -66,5 +72,82 @@ cancelCommentEl.onclick = () => closeModal();
 window.onclick = (event) => {
 	if (event.target == modalEl) {
 		closeModal();
+	}
+};
+
+containerEl.addEventListener("click", async (event) => {
+	const element = event.target;
+	const elementId = element.getAttribute('id');
+	let commentStat = elementId === 'update' || elementId === 'delete';
+	if (!commentStat) {
+		return;
+	}
+
+	commentStat = element.parentElement.getAttribute('data-number');
+	if (elementId === 'delete') {
+		await deleteComment(commentStat);
+	} else {
+		let index = element.parentElement.getAttribute('data-comment');
+		await updateComment(commentStat, index);
+	}
+});
+
+
+// Update the comment
+const updateComment = async (commentId, index) => {
+	const commentIndex = 'comment' + index;
+	commentTextEl.value = document.getElementById(commentIndex).textContent;
+	newCommentEl.style.display = "none";
+	updateCommentEl.style.display = "inline-block";
+	updateCommentEl.setAttribute('data-comment', commentId);
+	modalEl.style.display = "block";
+};
+
+// Delete a comment
+const deleteComment = async (commentId) => {
+	const response = await fetch(`/api/comments/${commentId}`, {
+		method: 'DELETE',
+	});
+
+	if (response.ok) {
+		location.reload();
+	} else {
+		displayError('Failed to add delete the comment!');
+	}
+};
+
+// Process the submission of updated comments
+updateCommentEl.onclick = async (event) => {
+	event.preventDefault();
+	let newComment = commentTextEl.value.trim();
+	let index = JSON.parse(event.target.getAttribute('data-index'));
+	let commentId = event.target.getAttribute('data-comment');
+	closeModal();
+
+	// Return if the comment is empty
+	if (newComment.length === 0) return;
+
+	// Create a new comment and send the post request.
+	const newNote = {
+		post_index: index,
+		comment: newComment,
+		date: new Date().toISOString(),
+	};
+
+	// send the update request
+	const response = await fetch(`/api/comments/${commentId}`, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(newNote),
+	});
+
+	// If successful, update the browser to display the new comments
+	if (response.ok) {
+		await response.json();
+		location.reload();
+	} else {
+		displayError('Failed to update the comment!');
 	}
 };

@@ -5,14 +5,22 @@
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>Updated on {{format_date date_modified}}</p>
   <p>{{content}}</p>
-   
+  
   {{#if comments.length}}
-    <h3>Blog Comments:</h3>
+    <div class="container">
+      <h3>Blog Comments:</h3>
 
-    {{#each comments as |comment|}}
-    <p>{{comment.comment}}</p>
-    <p>Posted on {{format_date date_posted}} by {{comment.writer}}</p>
-    {{/each}}
+      {{#each comments as |comment|}}
+        <div data-number="{{comment.id}}" data-comment="{{@index}}">
+          <p id="comment{{@index}}">{{comment.comment}}</p>
+          <p>Posted on {{format_date date_posted}} by {{comment.writer}}</p>
+          {{#if comment.isAllowed}}
+            <button id="update">Update</button>
+            <button id="delete">Delete</button>
+          {{/if}}
+        </div>       
+      {{/each}}
+    </div>
   {{/if}}
 
   {{#if logged_in}}
@@ -33,6 +41,7 @@
         </div>
           <button id="cancel">Cancel</button>
           <button id="addComment" data-index="{{id}}">Submit</button>
+          <button id="updateComment" data-index="{{id}}" class="no-display">Update</button>
       </div>
 
     </div>
