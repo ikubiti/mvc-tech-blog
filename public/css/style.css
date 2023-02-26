@@ -114,3 +114,6 @@ textarea {
   font-size: larger;
   text-shadow: -1px 0 blue, 0 1px coral, 1px 0 coral, 0 -1px coral;
 }
+.no-display {
+  display: none;
+}
