@@ -2,61 +2,109 @@
 	{
 		"post_id": 1,
 		"comment": "This was quite an interesting module, for the first time, my front-end project was alive with live data and capable of providing useful information to end users.",
-		"user_id": 5
+		"user_id": 5,
+		"date_posted": "2023-02-22 18: 55: 03"
 	},
 	{
 		"post_id": 2,
 		"comment": "A nice introduction to web development, the concepts surrounding HTML were quite novel to me. I did level up my knowledge of HTML but I still have a long way to go though!",
-		"user_id": 6
+		"user_id": 6,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 3,
 		"comment": "MySQL is another unconventional programming paradigm to learn and it is a bit challenging to wrap my head around it. However, for a quirky language, it offers unprecedented power to the developer and assists us to create absolutely wonderful and productive applications.",
-		"user_id": 1
+		"user_id": 1,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 4,
 		"comment": "This piece greatly eased my ability to learn and use git to keep my applications version-controlled. Brilliant write up!!!",
-		"user_id": 3
+		"user_id": 3,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 5,
 		"comment": "As a budding developer, it's relatively easy to focus on the project and underrate the README file. This blog reminded me about its importance and introduced me to a standard implementation template.",
-		"user_id": 2
+		"user_id": 2,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 6,
 		"comment": "To suggest that Node.js powerful is an understatement. It comes as no surprise that it's powered by the most popular programming language in the world. It's been both challenging and fun working with Node.",
-		"user_id": 6
+		"user_id": 6,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 1,
 		"comment": "Working with API's was certainly interesting and it was curiously easy to comprehend.",
-		"user_id": 3
+		"user_id": 3,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 2,
 		"comment": "The HTML language is an unsung hero of web development, it certainly deserves more recognition for its role",
-		"user_id": 5
+		"user_id": 5,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 3,
 		"comment": "Learning MySQL is a great way to learn and use SQL and it opens endless possibilities.",
-		"user_id": 4
+		"user_id": 4,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 4,
 		"comment": "Git is a fundamental requirement for collaborative and personal software development. It's such a useful skill set to possess.",
-		"user_id": 2
+		"user_id": 2,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 5,
 		"comment": "I loved this template, it made preparing my project README files less challenging. This blog is a must read for all beginner developers.",
-		"user_id": 5
+		"user_id": 5,
+		"date_posted": "2023-02-23 18: 55: 03"
 	},
 	{
 		"post_id": 6,
 		"comment": "My journey with Node.js has been filled with a lot of wow moments, its power is unbelievable.",
-		"user_id": 1
+		"user_id": 1,
+		"date_posted": "2023-02-23 18: 55: 03"
+	},
+	{
+		"post_id": 4,
+		"comment": "My journey with Node.js has been filled with a lot of wow moments, its power is unbelievable.",
+		"user_id": 1,
+		"date_posted": "2023-02-25 20: 28: 55"
+	},
+	{
+		"post_id": 5,
+		"comment": "I do agree that this is a must read by all beginner developers, its a treasure trove of best practices.",
+		"user_id": 1,
+		"date_posted": "2023-02-25 21: 07: 03"
+	},
+	{
+		"post_id": 4,
+		"comment": "Seeing this application work so flawlessly is impressive.",
+		"user_id": 2,
+		"date_posted": "2023-02-26 06: 34: 21"
+	},
+	{
+		"post_id": 6,
+		"comment": "A true powerhouse in web and software development !!",
+		"user_id": 2,
+		"date_posted": "2023-02-26 06: 37: 10"
+	},
+	{
+		"post_id": 6,
+		"comment": "However, Node is getting some competition from Deno and Bun js. They promise to make development even easier while improving on the app’s performance. It’s going to get truly interesting",
+		"user_id": 2,
+		"date_posted": "2023-02-26 06: 40: 18"
+	},
+	{
+		"post_id": 1,
+		"comment": "Using server side APIs boosts the functionality of your code, it’s such a powerhouse of productivity.",
+		"user_id": 2,
+		"date_posted": "2023-02-26 14: 58: 46"
 	}
 ]
