@@ -22,19 +22,23 @@
     <form class="form signup-form">
       <div class="form-group">
         <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
+        <input class="form-input" type="text" name="fullName" id="name-signup" required />
       </div>
       <div class="form-group">
         <label for="username-signup">username:</label>
-        <input class="form-input" type="text" id="username-signup" />
+        <input class="form-input" type="text" name="username" id="username-signup" required />
+      </div>
+      <div class="form-group">
+        <label for="profile-image">Profile Picture:</label>
+        <input class="form-input" type="file" name="image" id="profile-image" required/>
       </div>
       <div class="form-group">
         <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
+        <input class="form-input" type="text" name="email" id="email-signup" required/>
       </div>
       <div class="form-group">
         <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
+        <input class="form-input" type="password" name="password" id="password-signup" required/>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">signup</button>

@@ -36,8 +36,14 @@ Users.init(
       },
     },
     avatar: {
-      type: DataTypes.BLOB('long'),
+      type: DataTypes.STRING(400),
       allowNull: true,
+      defaultValue: ''
+    },
+    image_alt: {
+      type: DataTypes.STRING(400),
+      allowNull: true,
+      defaultValue: ''
     },
     password: {
       type: DataTypes.STRING,

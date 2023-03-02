@@ -12,11 +12,11 @@ Posts.init(
       autoIncrement: true,
     },
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(300),
       allowNull: false,
     },
     content: {
-      type: DataTypes.STRING(1500),
+      type: DataTypes.STRING(2000),
       allowNull: false,
     },
     date_created: {
@@ -29,8 +29,12 @@ Posts.init(
       allowNull: true,
       defaultValue: DataTypes.NOW,
     },
-    post_picture: {
-      type: DataTypes.BLOB('long'),
+    blog_image: {
+      type: DataTypes.STRING(400),
+      allowNull: true,
+    },
+    image_alt: {
+      type: DataTypes.STRING(400),
       allowNull: true,
     },
     user_id: {

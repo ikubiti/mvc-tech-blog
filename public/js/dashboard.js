@@ -1,24 +1,20 @@
+const createBlogForm = document.querySelector('.new-blog-form');
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
+  const submitBlog = new FormData(createBlogForm);
 
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  const response = await fetch(`/api/dashboard`, {
+    method: 'POST',
+    body: submitBlog,
+  });
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create project');
-    }
+  if (response.ok) {
+    await response.json();
+    location.reload();
+  } else {
+    alert('Failed to create project');
   }
 };
 
@@ -31,17 +27,16 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      await response.json();
+      location.reload();
     } else {
       alert('Failed to delete project');
     }
   }
 };
 
-document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
+createBlogForm.addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.project-list')
+  .querySelector('.blog-list')
   .addEventListener('click', delButtonHandler);
