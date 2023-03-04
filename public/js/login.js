@@ -31,7 +31,6 @@ const signupFormHandler = async (event) => {
   const response = await fetch('/api/users', {
     method: 'POST',
     body: submitForm,
-    // headers: { 'Content-Type': 'application/json' },
   });
 
   if (response.ok) {

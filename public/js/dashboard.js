@@ -1,7 +1,7 @@
 const createBlogForm = document.querySelector('#blog-form');
 const blogListEl = document.querySelector('.blog-list');
 const blogTitle = document.querySelector('#blogTitleElement');
-const newBlogBtn = document.querySelector('.new-blog');
+const newBlogEl = document.querySelector('#newBlog');
 const saveBlogEl = document.querySelector('#saveBlog');
 const updateBlogEl = document.querySelector('#updateBlog');
 const cancelBlogEl = document.querySelector('#cancelBlog');
@@ -153,7 +153,7 @@ const editBlogHandler = async (blogElement) => {
 const showUpdateBtn = () => {
   show(updateBlogEl);
   show(cancelBlogEl);
-  hide(newBlogBtn);
+  hide(newBlogEl);
 };
 
 // Show the save and cancel buttons
@@ -161,11 +161,11 @@ const showSaveBtn = () => {
   if (!blogTitle.value.trim() || !blogTitle.value.trim()) {
     hide(saveBlogEl);
     hide(cancelBlogEl);
-    show(newBlogBtn);
+    show(newBlogEl);
   } else {
     show(saveBlogEl);
     show(cancelBlogEl);
-    hide(newBlogBtn);
+    hide(newBlogEl);
   }
 };
 

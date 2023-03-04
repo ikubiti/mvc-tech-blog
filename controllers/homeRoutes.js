@@ -19,7 +19,8 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('homepage', {
       allPosts,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      blogID: req.session.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -51,6 +52,7 @@ router.get('/posts/:id', async (req, res) => {
     res.render('posts', {
       ...aPost,
       logged_in: req.session.logged_in,
+      blogID: req.session.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -69,7 +71,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
     res.render('dashboard', {
       ...user,
-      logged_in: true
+      logged_in: true,
+      blogID: req.session.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
