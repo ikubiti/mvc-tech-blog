@@ -92,6 +92,10 @@ const saveFiles = async (files) => {
 const deleteFile = async (fieldValue) => {
 	try {
 		const fileId = fieldValue.split('id=')[1];
+		if (!fileId || fileId.length === 0) {
+			return false;
+		}
+
 		const result = await driveClient.files.delete({
 			'fileId': fileId
 		});

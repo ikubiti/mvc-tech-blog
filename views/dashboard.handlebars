@@ -1,10 +1,45 @@
-<div class="row">
-  <div class="col-auto">
-    <img src="{{avatar}}" alt="{{image_alt}}">
-    <h2>Welcome, {{name}}</h2>
-  </div>
+
+<div class="fluid-container">
+      <div class="row">
+        <div class="col-md-5 col-lg-4 list-container">
+          <div class="card blog-list">
+            <h3 class="blog-title left-pad">Your Blogs</h3>
+            {{#if posts.length}}
+              <div class="row mb-2">
+                <ul class="list-group">
+                  {{#each posts as |post|}}
+                    <li class="list-group-item"><a href="/posts/{{post.id}}">
+                    <span class="list-item-title">{{post.title}}</span></a>
+                    <i id="update-blog" data-id="{{post.id}}">&#x1F4DD;</i>
+                    <i id="delete-blog" class="fas fa-trash-alt float-right text-danger delete-note" data-id="{{post.id}}"></i>
+                    </li>
+                    {{/each}}
+                  </ul>                 
+                </div>
+            {{/if}}
+          </div>
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <form id="blog-form">
+            <input
+            id="blogTitleElement"
+            class="blog-title"
+            placeholder="Blog Title"
+            maxlength="40"
+            type="text"
+            name="title"
+            required
+          />
+          <input class="form-input" type="file" id="blogImage" name="image"/>
+          <textarea class="blog-textarea" placeholder="Blog Text" name="content" required></textarea>
+          </form>
+        </div>
+      </div>
 </div>
 
+
+
+{{!-- 
 <div class="row mt-4">
   <div class="col-md-6">
     <h3>Create a New Project:</h3>
@@ -39,11 +74,17 @@
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{post.id}}">delete</button>
+        <button class="btn btn-sm btn-danger">Update <i class="fa-sharp fa-regular fa-wand-magic-sparkles"></i></button>
+        <button class="btn btn-sm btn-info">Up <i class="fa-solid fa-pen-to-square-alt float-right"></i></button>
+        <button class="btn btn-sm btn-info"><i class="fas fa-trash-alt float-right text-danger delete-note"></i></button>
       </div>
     </div>
     {{/each}}
   </div>
   {{/if}}
-</div>
+</div> --}}
 
 <script src="./js/dashboard.js"></script>
+{{!-- 
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+<i class="fa-solid fa-pen-to-square"></i> --}}
