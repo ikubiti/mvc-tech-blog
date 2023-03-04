@@ -1,3 +1,5 @@
+const theUser = require('./currentUser');
+
 module.exports = {
   format_date: (date) => {
     // Format date as MM/DD/YYYY
@@ -19,4 +21,7 @@ module.exports = {
       return `<span for="img" aria-label="gear">⚙️</span>`;
     }
   },
+  display_user: (id) => {
+    return theUser.getUser(id);
+  }
 };

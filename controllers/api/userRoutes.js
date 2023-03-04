@@ -4,6 +4,7 @@ const remoteConnect = require('../../utils/remoteConnect');
 const multer = require('multer');
 const upload = multer();
 const withAuth = require('../../utils/auth');
+const theUser = require('../../utils/currentUser');
 
 router.post('/', upload.any(), async (req, res) => {
   try {
@@ -25,6 +26,7 @@ router.post('/', upload.any(), async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      theUser.saveUser(userData.dataValues);
 
       res.status(200).json(userData);
     });
@@ -56,6 +58,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      theUser.saveUser(userData.dataValues);
 
       res.json({ user: userData, message: 'You are now logged in!' });
     });
@@ -67,6 +70,8 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
+    theUser.removeUser(req.session.user_id);
+    // req.session.user_id = userData.id;
     req.session.destroy(() => {
       res.status(204).end();
     });

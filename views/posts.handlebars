@@ -5,7 +5,7 @@
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>Updated on {{format_date date_modified}}</p>
   <img src="{{blog_image}}" alt="{{image_alt}}">
-  <div>{{content}}</div>
+  <div>{{{content}}}</div>
   
   {{#if comments.length}}
     <div class="container">
@@ -67,7 +67,6 @@
   {{/if}}
   
 </div>
-
 
 
 
