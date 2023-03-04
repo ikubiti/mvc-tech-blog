@@ -5,12 +5,25 @@ const remoteConnect = require('../../utils/remoteConnect');
 const multer = require('multer');
 const upload = multer();
 
+// get a specific post
+router.get('/:id', withAuth, upload.any(), async (req, res) => {
+  try {
+    const blogData = await Posts.findByPk(req.params.id);
+    // console.log(blogData);
+
+    // res.status(200);
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // create a new blog post
 router.post('/', withAuth, upload.any(), async (req, res) => {
   try {
     // Remotely save the blog image
     const { body, files } = req;
-    let result = { file_id: 'null', name: 'null' };
+    let result = { file_id: null, name: null };
     if (files.length > 0) {
       result = await remoteConnect.saveFiles(files);
     }
@@ -23,8 +36,8 @@ router.post('/', withAuth, upload.any(), async (req, res) => {
       image_alt: result.name ? result.name : '',
       user_id: req.session.user_id,
     };
-    const userData = await Posts.create(newBlog);
-    res.status(200).json(userData);
+    const blogData = await Posts.create(newBlog);
+    res.status(200).json(blogData);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -58,14 +71,14 @@ router.delete('/:id', withAuth, async (req, res) => {
 router.put('/:id', withAuth, upload.any(), async (req, res) => {
   try {
     const blogData = await Posts.findByPk(req.params.id);
-    if (blogData.blog_image.length > 0) {
-      await remoteConnect.deleteFile(blogData.blog_image);
-    }
 
     // The image variable is a placeholder for our uploaded image.
     const { body, files } = req;
 
     if (files && files.length > 0) {
+      if (blogData.blog_image.length > 0) {
+        await remoteConnect.deleteFile(blogData.blog_image);
+      }
       const result = await remoteConnect.saveFiles(files);
       await remoteConnect.deleteFile(blogData.blog_image);
       blogData.blog_image = `https://drive.google.com/uc?export=view&id=${result.file_id}`;

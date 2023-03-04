@@ -20,64 +20,73 @@
   </head>
 
   <body>
-    {{!-- <div class='flex-column justify-space-around'> --}}
-      <header>
-        <nav class='navbar navbar-expand-md navbar-dark bg-info'>
-          <div class='container-fluid'>
-            <div class='collapse navbar-collapse' id='navbarCollapse'>
-              <ul class='navbar-nav me-auto mb-1 mb-md-0'>
-                <li class='nav-item'>
-                  <h1>
-                    <a
-                      class='nav-link active'
-                      aria-current='page'
-                      href='/'
-                    >Home</a>
-                  </h1>
-                </li>
-                <li class='nav-item'>
-                  <h1>
-                    <a
-                      class='nav-link active'
-                      aria-current='page'
-                      href='/dashboard'
-                    >Dashboard</a>
-                  </h1>
-                </li>
-                <li class='nav-item'>
-                  <h1>
-                    {{#if logged_in}}
-                      <a class='nav-link' id='logout' href="#">logout</a>
-                    {{else}}
-                      <a class='nav-link active' href='/login'>login</a>
-                    {{/if}}
-                  </h1>
-                </li>
-              </ul>
-            </div>
+    <header>
+      <nav class='navbar navbar-expand-md navbar-dark bg-dark'>
+        <div class='container-fluid'>
+          <button
+            class='navbar-toggler'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#navbarsHeader'
+            aria-controls='navbarsHeader'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+          >
+            <span class='navbar-toggler-icon'></span>
+          </button>
+
+          <div
+            class='collapse navbar-collapse justify-content-md-center'
+            id='navbarsHeader'
+          >
+            <ul class='navbar-nav'>
+              <li class='nav-item'>
+                <a class='nav-link active' aria-current='page' href='/'>Home</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link active' href='/dashboard'>Dashboard</a>
+              </li>
+              <li class='nav-item'>
+                {{#if logged_in}}
+                  <a class='nav-link' id='logout' href='#'>logout</a>
+                {{else}}
+                  <a class='nav-link active' href='/login'>login</a>
+                {{/if}}
+              </li>
+            </ul>
           </div>
-        </nav>
-      </header>
+          <div>
+            {{#if logged_in}}
+              <h2 class="text-light"><img src="{{avatar}}" alt="{{image_alt}}"> {{name}}</h2>
+            {{/if}}
+          </div>
+          <div class='icons'>
+            <i id="updateBlog" class="fas fa-save text-light no-display"></i>
+            <i id="saveBlog" class='no-display'>&#x1F4BE;</i>
+            <i id="cancelBlog" class='no-display'>&#x274C;</i>
+            <i class='fas fa-plus text-light new-blog'></i>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-      <main class='container container-fluid mt-2'>
-        <!-- Render the sub layout -->
-        {{{body}}}
-      </main>
-      <footer
-        class='fixed-bottom container-fluid p-2 border-1 border-top border-dark bg-info'
-      >
-        <p class='float-end'><a href='#'>Back to top</a></p>
-        <h4 class='text-center outline-deco'>
-          &copy; 2023 &middot;
-          <a
-            href='https://github.com/ikubiti'
-            target='_blank'
-            rel='noopener noreferrer'
-          >Isoyor Kubiti</a>
+    <main class='container-fluid mt-2'>
+      <!-- Render the sub layout -->
+      {{{body}}}
+    </main>
+    <footer class='container-fluid p-2 border-1 border-top border-dark bg-dark'>
+      <p class='float-end'><a href='#'>Back to Top</a></p>
+      <h4 class='text-center outline-deco'>
+        &copy; 2023 &middot;
+        <a
+          href='https://github.com/ikubiti'
+          target='_blank'
+          rel='noopener noreferrer'
+        >Isoyor Kubiti</a>
 
-        </h4>
-      </footer>
-    {{!-- </div> --}}
+      </h4>
+    </footer>
+    {{! </div> }}
 
     <script
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js'
