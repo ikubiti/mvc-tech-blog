@@ -2,18 +2,18 @@
 {{#each allPosts as |blog| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
-    <h2>
+    <h1>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
       {{{get_emoji}}}
       <a href="/posts/{{blog.id}}">{{blog.title}}</a>
-    </h2>
+    </h1>
 
 
     <p>By <a href="mailto:{{blog.user.email}}">{{blog.user.name}}</a> on {{format_date blog.date_created}}</p>
   </div>
   <div class="col-md-7">
     <p>
-      {{blog.content}}
+      {{{blog.content}}}
     </p>
   </div>
 </div>

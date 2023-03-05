@@ -5,9 +5,37 @@ const newBlogEl = document.querySelector('#newBlog');
 const saveBlogEl = document.querySelector('#saveBlog');
 const updateBlogEl = document.querySelector('#updateBlog');
 const cancelBlogEl = document.querySelector('#cancelBlog');
-const blogText = document.querySelector('.blog-textarea');
 const blogImage = document.querySelector('#blogImage');
 
+const editorText = document.querySelector('#blog-editor');
+
+const toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],
+  ['blockquote', 'code-block'],
+
+  [{ 'header': 1 }, { 'header': 2 }],
+  [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+  [{ 'script': 'sub' }, { 'script': 'super' }],
+  [{ 'indent': '-1' }, { 'indent': '+1' }],
+  [{ 'direction': 'rtl' }],
+
+  [{ 'size': ['small', false, 'large', 'huge'] }],
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ 'color': [] }, { 'background': [] }],
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+
+  ['clean']
+];
+
+// Create the quill editor
+const blogEditor = new Quill('#blog-editor', {
+  modules: {
+    toolbar: toolbarOptions
+  },
+  theme: 'snow'
+});
 
 // Show an element
 const show = (element) => {
@@ -24,7 +52,7 @@ const saveBlogHandler = async (event) => {
   event.preventDefault();
 
   const title = blogTitle.value.trim();
-  const text = blogText.value;
+  const text = blogEditor.root.innerHTML;
 
   if (title.length === 0 || text.length === 0) {
     alert('Your blog post is incomplete');
@@ -32,6 +60,7 @@ const saveBlogHandler = async (event) => {
   }
 
   const submitBlog = new FormData(createBlogForm);
+  submitBlog.append('content', text);
   const response = await fetch(`/api/dashboard/`, {
     method: 'POST',
     body: submitBlog,
@@ -41,7 +70,7 @@ const saveBlogHandler = async (event) => {
     await response.json();
     cancelBlogHandler();
   } else {
-    alert('Failed to create project');
+    alert('Failed to create a new blog post');
   }
 };
 
@@ -56,7 +85,7 @@ const updateBlogHandler = async (event) => {
 
   blogId = blogTitle.getAttribute('data-id');
   const title = blogTitle.value.trim();
-  const text = blogText.value;
+  const text = blogEditor.root.innerHTML;
 
   if (title.length === 0 || text.length === 0) {
     alert('Your blog post is incomplete');
@@ -64,6 +93,7 @@ const updateBlogHandler = async (event) => {
   }
 
   const submitBlog = new FormData(createBlogForm);
+  submitBlog.append('content', text);
   const response = await fetch(`/api/dashboard/${blogId}`, {
     method: 'PUT',
     body: submitBlog,
@@ -74,7 +104,7 @@ const updateBlogHandler = async (event) => {
     cancelBlogHandler();
     blogTitle.removeAttribute('data-id');
   } else {
-    alert('Failed to create project');
+    alert('Failed to update blog post');
   }
 };
 
@@ -86,8 +116,7 @@ const cancelBlogHandler = async (event) => {
 
   location.reload();
   blogTitle.value = '';
-  blogText.value = '';
-  blogImage.value = '';
+  blogEditor.setContents([{ insert: '\n' }]);
 };
 
 // Process the required user request
@@ -137,15 +166,16 @@ const editBlogHandler = async (blogElement) => {
 
   if (response.ok) {
     const blogContents = await response.json();
+    showUpdateBtn();
 
     blogTitle.setAttribute('data-id', blogElement);
     blogTitle.value = blogContents.title;
-    blogText.value = blogContents.content;
-    if (blogContents.blog_image.length > 0) {
-      blogImage.textContent = blogContents.blog_image;
+    const oldContent = blogEditor.clipboard.convert(blogContents.content);
+    blogEditor.setContents(oldContent);
+    if (blogContents.blog_image && blogContents.blog_image.length > 0) {
+      const msg = `This blog has an attached image called: ${blogContents.image_alt}`;
+      document.querySelector('#blogPicture').textContent = msg;
     }
-
-    showUpdateBtn();
   }
 };
 

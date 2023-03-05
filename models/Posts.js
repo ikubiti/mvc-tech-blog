@@ -16,7 +16,7 @@ Posts.init(
       allowNull: false,
     },
     content: {
-      type: DataTypes.STRING(2000),
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     date_created: {
