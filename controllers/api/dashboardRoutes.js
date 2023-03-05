@@ -9,9 +9,6 @@ const upload = multer();
 router.get('/:id', withAuth, upload.any(), async (req, res) => {
   try {
     const blogData = await Posts.findByPk(req.params.id);
-    // console.log(blogData);
-
-    // res.status(200);
     res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
@@ -36,6 +33,7 @@ router.post('/', withAuth, upload.any(), async (req, res) => {
       image_alt: result.name ? result.name : '',
       user_id: req.session.user_id,
     };
+
     const blogData = await Posts.create(newBlog);
     res.status(200).json(blogData);
   } catch (err) {
@@ -76,16 +74,15 @@ router.put('/:id', withAuth, upload.any(), async (req, res) => {
     const { body, files } = req;
 
     if (files && files.length > 0) {
-      if (blogData.blog_image.length > 0) {
+      if (blogData.blog_image && blogData.blog_image.length > 0) {
         await remoteConnect.deleteFile(blogData.blog_image);
       }
       const result = await remoteConnect.saveFiles(files);
-      await remoteConnect.deleteFile(blogData.blog_image);
       blogData.blog_image = `https://drive.google.com/uc?export=view&id=${result.file_id}`;
       blogData.image_alt = result.name;
     }
 
-    // Assuming the body uses our naming conventions
+    // Reconstruct the blog with parts of the old and new data.
     const newBlog = {
       title: body.title ? body.title : blogData.title,
       content: body.content ? body.content : blogData.content,
