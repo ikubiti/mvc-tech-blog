@@ -1,20 +1,67 @@
-<!-- Loop over each object in the projects array -->
-{{#each allPosts as |blog| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h1>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/posts/{{blog.id}}">{{blog.title}}</a>
-    </h1>
+{{!-- Carousel --}}
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      {{#each allPosts as |blog| }}
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{@index}}" {{{initiateCarousel @index}}} aria-label="Slide {{addOne @index}}"></button>
+      {{/each}}
+    </div>
+    <div class="carousel-inner">
+      {{#each allPosts as |blog| }}
+        <div class="carousel-item {{getActive @index}}">
+          <a href="/posts/{{blog.id}}">
+          {{{getCarouselImage blog.blog_image blog.image_alt}}}
+          </a>
+          
 
+          <div class="container">
+            <div class="carousel-caption {{getTextStart @index}}">
+              <h1><a href="/posts/{{blog.id}}">{{blog.title}}</a></h1>
+              <h3 class="carolColor">{{blog.user.name}}</h3>
+              <p class="carolColor">{{format_date blog.date_created}}</p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
-    <p>By <a href="mailto:{{blog.user.email}}">{{blog.user.name}}</a> on {{format_date blog.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{{blog.content}}}
-    </p>
+{{!-- Album --}}
+<div class="feature-divider mt-2"></div>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        From the Developers' Tech Blog Repo
+    </h3>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-2">
+      {{#each allPosts as |blog| }}
+        <div class="col">
+          <div class="card rounded-5 cardHeight">
+            <a href="/posts/{{blog.id}}" class="no-decoration">
+              <svg width="100%" height="320" xmlns="http://www.w3.org/2000/svg"  style="background-image: url('{{blog.blog_image}}')" class="cardImage bg-secondary"></svg>
+
+              <div class="card-body">
+                <h3 class="card-title textHeight">{{blog.title}}</h3>
+                <div class="d-flex justify-content-between align-items-center">
+                  <img src="{{blog.user.avatar}}" alt="{{blog.user.name}}" class="rounded-circle border border-primary profile-post-image">
+                  <small class="text-muted no-decoration">{{blog.user.name}}</small>
+                  <small  class="text-muted">{{format_date blog.date_modified}}</small>
+                </div>
+              </div>
+            </a>           
+          </div>
+        </div>
+      {{/each}}
+    </div>
   </div>
 </div>
-{{/each}}
+
+<div class="feature-divider mb-3"></div>

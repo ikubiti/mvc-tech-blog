@@ -2,7 +2,8 @@
 const newCommentEl = document.getElementById("addComment");
 const updateCommentEl = document.getElementById("updateComment");
 const cancelCommentEl = document.getElementById("cancel");
-const commentTextEl = document.querySelector('.comment-textarea');
+const commentTextEl = document.querySelector('#commentText');
+const currentPostEl = document.querySelector('#allComments');
 // Get the modal
 const modalEl = document.getElementById("commentModal");
 // Get the button that opens the modal
@@ -10,8 +11,6 @@ const btnEl = document.getElementById("newComment");
 const okayEl = document.getElementById("okay");
 const modalErrorEl = document.getElementById("errorModal");
 const errorFeedbackEl = document.getElementById('commentError');
-// get the container for the comments
-const containerEl = document.querySelector(".container");
 
 // Process the submission of new comments
 newCommentEl.onclick = async (event) => {
@@ -75,19 +74,21 @@ window.onclick = (event) => {
 	}
 };
 
-containerEl.addEventListener("click", async (event) => {
+currentPostEl.addEventListener("click", async (event) => {
 	const element = event.target;
 	const elementId = element.getAttribute('id');
+
 	let commentStat = elementId === 'update' || elementId === 'delete';
 	if (!commentStat) {
 		return;
 	}
 
-	commentStat = element.parentElement.getAttribute('data-number');
+	const commentContainer = element.parentElement.parentElement;
+	commentStat = commentContainer.getAttribute('data-number');
 	if (elementId === 'delete') {
 		await deleteComment(commentStat);
 	} else {
-		let index = element.parentElement.getAttribute('data-comment');
+		let index = commentContainer.getAttribute('data-comment');
 		await updateComment(commentStat, index);
 	}
 });
@@ -105,8 +106,17 @@ const updateComment = async (commentId, index) => {
 
 // Delete a comment
 const deleteComment = async (commentId) => {
+	let index = currentPostEl.getAttribute('data-posted');
+	const deleteComment = {
+		post_index: index,
+	};
+
 	const response = await fetch(`/api/comments/${commentId}`, {
 		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(deleteComment),
 	});
 
 	if (response.ok) {

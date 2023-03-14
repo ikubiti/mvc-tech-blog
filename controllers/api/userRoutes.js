@@ -4,12 +4,13 @@ const remoteConnect = require('../../utils/remoteConnect');
 const multer = require('multer');
 const upload = multer();
 const withAuth = require('../../utils/auth');
-const theUser = require('../../utils/currentUser');
 
 router.post('/', upload.any(), async (req, res) => {
   try {
     // The image variable is a placeholder for our uploaded image.
     const { body, files } = req;
+    console.log(files);
+
     let result = await remoteConnect.saveFiles(files);
 
     // Create a new instance of the user model.
@@ -26,8 +27,9 @@ router.post('/', upload.any(), async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      theUser.saveUser(userData.dataValues);
-
+      req.session.full_name = userData.name;
+      req.session.user_image = userData.avatar;
+      req.session.user_alt = userData.image_alt;
       res.status(200).json(userData);
     });
   } catch (err) {
@@ -58,7 +60,9 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      theUser.saveUser(userData.dataValues);
+      req.session.full_name = userData.name;
+      req.session.user_image = userData.avatar;
+      req.session.user_alt = userData.image_alt;
 
       res.json({ user: userData, message: 'You are now logged in!' });
     });
@@ -70,8 +74,6 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
-    theUser.removeUser(req.session.user_id);
-    // req.session.user_id = userData.id;
     req.session.destroy(() => {
       res.status(204).end();
     });

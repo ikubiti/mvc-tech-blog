@@ -3,36 +3,56 @@
     "name": "Kwame Adom",
     "username": "KwameAdom",
     "email": "kwameadom@got.us",
-    "password": "HonorDisc1234"
+    "password": "HonorDisc1234",
+    "avatar": "https://drive.google.com/uc?export=view&id=1yiFMU2b5ZyFdA3sguFYmztHYVagKNd2r",
+    "image_alt": "Kwame Adom"
   },
   {
     "name": "Brett McQuail",
     "username": "BrettMcQuail",
     "email": "brettmcquail@gmail.com",
-    "password": "LoudNoise9483"
+    "password": "LoudNoise9483",
+    "avatar": "https://drive.google.com/uc?export=view&id=13WAEC-HN43qAVQo1h3TCPVwt_ntexU96",
+    "image_alt": "Brett McQuail"
   },
   {
     "name": "Jeff Jackson",
     "username": "AppleJack",
     "email": "jefferson112@hotmail.com",
-    "password": "password12345"
+    "password": "password12345",
+    "avatar": "https://drive.google.com/uc?export=view&id=1ABcRQgL_itsiSWljOYDSirskcrxivLA7",
+    "image_alt": "Jeff Jackson"
   },
   {
     "name": "Julio Sanchez",
     "username": "JulioBear",
     "email": "juliosanchez@icloud.com",
-    "password": "!Take975Away"
+    "password": "!Take975Away",
+    "avatar": "https://drive.google.com/uc?export=view&id=11hFKiL0qORvOwRi9U8mO0oWeuBGpSu3p",
+    "image_alt": "Julio Sanchez"
   },
   {
     "name": "Emese Gris",
     "username": "EmilyGris",
     "email": "grisslybear@hotmail.com",
-    "password": "!IamtheOne1"
+    "password": "IamtheOne1",
+    "avatar": "https://drive.google.com/uc?export=view&id=1A7TdAaEXuNNhNpUFAhJ1Z2JlYG2xzsEo",
+    "image_alt": "Emese Gris"
   },
   {
     "name": "Thor Odinson",
     "username": "TheMightyOdinson",
     "email": "godofthunder@asgard.com",
-    "password": "1MightiestOne"
+    "password": "1MightiestOne",
+    "avatar": "https://drive.google.com/uc?export=view&id=1H0dGmoA6BvrVDCOaW4dItjeXsQ6wdtUv",
+    "image_alt": "Thor Odinson"
+  },
+  {
+    "name": "Arya Stark",
+    "username": "arya",
+    "email": "aryastark@got.com",
+    "password": "westerios1see",
+    "avatar": "https://drive.google.com/uc?export=view&id=10SIUMfY7mTzaJ6KZ4jGewhTG2u1_iyBC",
+    "image_alt": "Arya Stark"
   }
 ]

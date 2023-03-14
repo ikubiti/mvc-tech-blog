@@ -32,10 +32,12 @@ Posts.init(
     blog_image: {
       type: DataTypes.STRING(400),
       allowNull: true,
+      defaultValue: '',
     },
     image_alt: {
       type: DataTypes.STRING(400),
       allowNull: true,
+      defaultValue: '',
     },
     user_id: {
       type: DataTypes.INTEGER,

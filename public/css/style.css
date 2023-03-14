@@ -2,23 +2,22 @@ html,
 body {
   height: 100%;
   margin: 0;
-    padding: 0;
-    padding-bottom: 3.0rem;
-  /* padding-top: 3.0rem; */
-}
-
-header,
-.project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+  padding: 0;
+  padding-bottom: 3.5rem;
 }
 
 main {
-  min-height: 84vmin;
+  min-height: 89vmin;
   overflow-y: auto;
 }
 
-.save-blog {
-  display: none;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
 .icons i {
@@ -28,6 +27,10 @@ main {
   cursor: pointer;
 }
 
+#update-blog,
+#delete-blog {
+  cursor: pointer;
+}
 /*  */
 .no-button {
   background: none;
@@ -131,12 +134,6 @@ main {
   padding: 2px 16px;
 }
 
-textarea {
-  width: 100%;
-  height: 100px;
-}
-
-
 .outline-deco {
   color: var(--bs-white);
   font-size: larger;
@@ -155,36 +152,23 @@ textarea {
 }
 
 /*  */
-.blog-textarea,
 .blog-title {
   color: #000000;
   width: 100%;
-  outline: none;
-  border: none;
-}
-
-.blog-textarea {
-  resize: none;
-  height: calc(100% - 63px);
-  padding-top: 15px;
-}
-
-.blog-title {
   height: 50px;
-  margin-top: 13px;
-  font-size: 3rem;
+    margin-top: 13px;
+      font-size: 3rem;
+    outline: none;
+      border: none;
 }
 
-.blog-title:read-only,
-.blog-textarea:read-only {
+.blog-title:read-only {
   color: #757575;
 }
 
 .list-container .card {
   height: calc(100vh - 70px);
   border-bottom: none;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
 }
 
 .list-container {
@@ -196,8 +180,6 @@ textarea {
 .list-container .list-group-item:first-child,
 .list-container .card {
   border-top: none;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
 }
 
 .list-item-title {
@@ -207,14 +189,10 @@ textarea {
 
 .list-container i {
   font-size: 1.1rem;
-  cursor: pointer;
 }
 
 .list-container .list-group-item {
-  border-left: none;
-  border-right: none;
   padding: 20px;
-  cursor: pointer;
 }
 
 .fluid-container {
@@ -224,11 +202,11 @@ textarea {
 #blog-editor {
   min-height: 400px;
 }
+
 .left-pad {
   padding-left: 2%;
   padding-bottom: 3%;
-    /* margin-bottom: 5%; */
-    border-bottom: 1px solid var(--bs-gray-400);
+  border-bottom: 1px solid var(--bs-gray-400);
 }
 
 #blogImage {
@@ -239,4 +217,190 @@ textarea {
 #blogTitleElement {
   padding-top: 2%;
   padding-bottom: 5%;
+}
+/* Sign-in-sign-up */
+.display-4 {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+.profile-image {
+  width: 72px;
+  height: 57px;
+}
+
+.profile-post-image {
+  width: 40px;
+  height: 40px;
+}
+
+.entry-point {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.entry-form {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.entry-form .form-floating:focus-within {
+  z-index: 2;
+}
+
+.entry-form input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.entry-form input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Carousel */
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+}
+
+.carousel-item>img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+@media (min-width: 40em) {
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+}
+
+.blogHeadImage {
+  width: 100%;
+  height: 500px;
+}
+
+.carolImage {
+  width: 100%;
+  height: 32rem;
+}
+
+/* Album */
+
+.feature-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.carolColor {
+  color: rgb(13, 110, 253);
+}
+
+.cardImage {
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  object-fit: fill;
+}
+
+.cardHeight {
+  min-height: 500px;
+}
+
+.cardHeight:hover {
+  font-size: large;
+  box-shadow: 10px 10px 5px lightblue;
+}
+
+.textHeight {
+  min-height: 100px;
+}
+
+.textHeight:hover {
+  font-size: xx-large;
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+
+.blog-pagination>.btn {
+  border-radius: 2rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+
+.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+}
+
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
+
+.limitWidth img {
+  max-width: 100%;
 }
