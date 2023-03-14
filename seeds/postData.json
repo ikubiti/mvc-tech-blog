@@ -11,7 +11,9 @@
     "content": "Hypertext Markup Language (HTML) is one of the three cornerstone languages used to develop webpages.\n\nHTML handles the standard markup of a page. Using HTML, we define the basic framework for the page and the elements we want to appear on it.\n\n For more information, please visit https://coding-boot-camp.github.io/full-stack/html/html-cheatsheet.",
     "user_id": 2,
     "date_created": "2023-02-04 18: 55: 03",
-    "date_modified": "2023-02-23 18: 55: 03"
+    "date_modified": "2023-02-23 18: 55: 03",
+    "blog_image": "https://drive.google.com/uc?export=view&id=1Yclvx6WmqBVgLK7iU3_bQAhNKBOLsHFO",
+    "image_alt": "app-checklist.jpg"
   },
   {
     "title": "MySQL Reference Guide",
@@ -40,5 +42,32 @@
     "user_id": 4,
     "date_created": "2023-02-16 18: 55: 03",
     "date_modified": "2023-02-23 18: 55: 03"
+  },
+  {
+    "title": "Quilljs 101",
+    "content": "Quill is currently my favorite rich text editor. The Quill content is described by the Deltas format. This format is a subset of JSON, well suited for many applications. But you sometime need to get raw HTML content for publishing on a web page or sending content via email.This page explains how to get raw HTML from JS or post the content of the form. The following has been tested with Quill version 1.3.6.",
+    "blog_image": "https://drive.google.com/uc?export=view&id=1CBQJQq20Lkhqe0FIOCYjIKfbmIRanICN",
+    "image_alt": "funEmoji-1677704295441.jpg",
+    "user_id": 2,
+    "date_created": "2023-03-05 07:31:36",
+    "date_modified": "2023-03-05 17:54:35"
+  },
+  {
+    "title": "Deploy with Heroku and MySQL",
+    "content": "You've already deployed a Node.js application to Heroku using the Heroku CLI, but what about deploying an application that needs to connect to a database? In development, we get to use our local SQL servers for storing our application's data, but that won't work with a deployed application, since it won't have access to our machine. In this case, we need to do slightly more configuration on Heroku to deploy our app.In this guide, we'll walk through the steps we need to take to deploy an application backed by a SQL database to Heroku.",
+    "blog_image": "https://drive.google.com/uc?export=view&id=1K_UAG5VvgFcYtHuiPyzONnC2lUO6-uAs",
+    "image_alt": "App-to-App-Deployment-Feature.webp",
+    "user_id": 2,
+    "date_created": "2023-03-05 19:45:01",
+    "date_modified": "2023-03-05 20:46:40"
+  },
+  {
+    "title": "How to Install MongoDB",
+    "content": "MongoDB is a general purpose, document-based, distributed NoSQL database built for web application developers in the cloud era. It’s one of the most popular database choices for modern applications.\n\nTo install MongoDB on your machine, follow the instructions for your operating system below. Some of the images and versions mentioned below may be slightly different from the MongoDB web site, but the general instruction is the same.",
+    "blog_image": "https://drive.google.com/uc?export=view&id=1knzlO8mW3qb76JuJxaZLiA7_G2MR-EDa",
+    "image_alt": "Mongo database",
+    "user_id": 2,
+    "date_created": "2023-03-10 17:25:42",
+    "date_modified": "2023-03-13 12:24:16"
   }
 ]

@@ -1,27 +1,58 @@
-const theUser = require('./currentUser');
 
 module.exports = {
   format_date: (date) => {
     // Format date as MM/DD/YYYY
     return date.toLocaleDateString();
   },
-  format_amount: (amount) => {
-    // format large numbers with commas
-    return parseInt(amount).toLocaleString();
+  format_date_full: (date) => {
+    return date.toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });
   },
-  get_emoji: () => {
-    const randomNum = Math.random();
+  getUpdatedTime: (dateCreated, dateUpdated) => {
+    if (dateCreated.getDay() != dateUpdated.getDay() || dateCreated.getMonth() != dateUpdated.getMonth() || dateCreated.getFullYear() != dateUpdated.getFullYear()) {
+      let displayDate = dateUpdated.toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });
+      return `Updated on ${displayDate}`;
 
-    // Return a random emoji
-    if (randomNum > 0.7) {
-      return `<span for="img" aria-label="lightbulb">💡</span>`;
-    } else if (randomNum > 0.4) {
-      return `<span for="img" aria-label="laptop">💻</span>`;
-    } else {
-      return `<span for="img" aria-label="gear">⚙️</span>`;
     }
+
+    return '';
+
   },
-  display_user: (id) => {
-    return theUser.getUser(id);
+  addClass: (element) => {
+    if (!element || element === '') {
+      return "";
+    }
+
+    return 'blogHeadImage';
+  },
+  initiateCarousel: (element) => {
+    if (element === 0) {
+      return `class="active" aria-current="true"`;
+    }
+
+    return "";
+  },
+  getActive: (element) => {
+    if (element === 0) {
+      return "active"; 970;
+    }
+
+    return "";
+  },
+  getCarouselImage: (element, alt) => {
+    if (!element || element === '') {
+      return `<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>`;
+    }
+
+    return `<img src="${element}" alt="${alt}" class="carolImage" aria-hidden="true">`;
+  },
+  getTextStart: (element) => {
+    if (element === 0) {
+      return "text-start";
+    }
+
+    return "";
+  },
+  addOne: (element) => {
+    return parseInt(element) + 1;
   }
 };

@@ -1,0 +1,25 @@
+{{#if this.length}}
+	<div class="container" id="realComment">
+		<h3 class="pb-4 mb-2 fst-italic">Comments:</h3>
+
+		{{#each this as |comment|}}
+		<div data-number="{{comment.id}}" data-comment="{{@index}}" class="card  p-3 mb-4">
+			<figure class="mb-0">
+			<blockquote class="blockquote">
+				<p id="comment{{@index}}">{{comment.comment}}</p>
+			</blockquote>
+			<figcaption class="blockquote-footer mb-0">
+				<cite title="Registered User">{{comment.writer}}</cite>, {{format_date date_posted}}
+			</figcaption>
+			</figure>
+
+			{{#if comment.isAllowed}}
+			<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+				<button id="update" class="btn btn-primary btn-lg px-4 gap-3">Update</button>
+				<button id="delete" class="btn btn-primary btn-lg px-4 gap-3">Delete</button>
+			</div>              
+			{{/if}}
+		</div>
+		{{/each}}
+	</div>
+{{/if}}

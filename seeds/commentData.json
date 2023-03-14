@@ -99,12 +99,36 @@
 		"post_id": 6,
 		"comment": "However, Node is getting some competition from Deno and Bun js. They promise to make development even easier while improving on the app’s performance. It’s going to get truly interesting",
 		"user_id": 2,
-		"date_posted": "2023-02-26 06: 40: 18"
+		"date_posted": "2023-02-27 06: 40: 18"
 	},
 	{
 		"post_id": 1,
 		"comment": "Using server side APIs boosts the functionality of your code, it’s such a powerhouse of productivity.",
 		"user_id": 2,
-		"date_posted": "2023-02-26 14: 58: 46"
+		"date_posted": "2023-02-28 14: 58: 46"
+	},
+	{
+		"post_id": 2,
+		"comment": "Interesting read, a truly nice introduction to web development.",
+		"user_id": 3,
+		"date_posted": "2023-03-05 20:20:27"
+	},
+	{
+		"post_id": 9,
+		"comment": "Kwame, this blog has depth and clarity, thanks.",
+		"user_id": 4,
+		"date_posted": "2023-03-06 20:20:27"
+	},
+	{
+		"post_id": 7,
+		"comment": "Quills is an impressive Rich Text Editor, it’s a great tool for web developers.",
+		"user_id": 3,
+		"date_posted": "2023-03-11 02:32:19"
+	},
+	{
+		"post_id": 1,
+		"comment": "Nice one, Jeff, I needed to read this.",
+		"user_id": 7,
+		"date_posted": "2023-03-13 17:07:09"
 	}
 ]

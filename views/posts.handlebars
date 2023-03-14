@@ -1,72 +1,78 @@
 
-<div class="container">
-  <h1>{{{get_emoji}}} {{title}}</h1>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>Updated on {{format_date date_modified}}</p>
-  <img src="{{blog_image}}" alt="{{image_alt}}">
-  <div>{{{content}}}</div>
-  
-  {{#if comments.length}}
-    <div class="container">
-      <h3>Blog Comments:</h3>
+<div  class="container" id="allComments" data-posted="{{id}}">
+  <div class="row g-5">
+    <div class="col-md-8">
 
-      {{#each comments as |comment|}}
-        <div data-number="{{comment.id}}" data-comment="{{@index}}">
-          <p id="comment{{@index}}">{{comment.comment}}</p>
-          <p>Posted on {{format_date date_posted}} by {{comment.writer}}</p>
-          {{#if comment.isAllowed}}
-            <button id="update">Update</button>
-            <button id="delete">Delete</button>
-          {{/if}}
-        </div>       
-      {{/each}}
+      <article class="blog-post">
+        <h2 class="blog-post-title">{{title}}</h2>
+        <p class="blog-post-meta">Posted on {{format_date_full date_created}} by <a href="mailto:{{user.email}}">{{user.name}}</a></p>
+        <p class="blog-post-meta">{{{getUpdatedTime date_created date_modified}}}</p> 
+        <img src="{{blog_image}}" alt="{{image_alt}}" class="{{addClass blog_image}}">
+
+        <div class="limitWidth mt-3">{{{content}}}</div>
+      </article>
+
+      {{> postComments comments}}
+        
+      {{#if logged_in}}
+        <p>
+          <button class="btn btn-primary gy-2" id="newComment">Add Comment</button>
+        </p>
+
+        <!-- The New Comment Modal -->
+        <div id="commentModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>{{title}}</h2>
+            </div>
+            <div class="modal-body">
+              <textarea id="commentText" class="form-control" placeholder="New Comment"></textarea>
+            </div>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <button id="cancel" class="btn btn-primary btn-lg px-4 gap-3 my-2">Cancel</button>
+              <button id="addComment" data-index="{{id}}" class="btn btn-primary btn-lg px-4 gap-3 my-2">Submit</button>
+              <button id="updateComment" data-index="{{id}}" class="btn btn-primary btn-lg px-4 gap-3 my-2 no-display">Update</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- The Error Feedback Modal -->
+        <div id="errorModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header bg-danger">
+              <h2>SYSTEM ERROR!</h2>
+            </div>
+            <div class="modal-body">
+              <p id="commentError"></p>
+            </div>
+              <button id="okay">Okay</button>
+          </div>
+
+        </div>
+
+        <script src="/js/comments.js"></script>
+      {{/if}}
+
+      <nav class="blog-pagination" aria-label="Pagination">
+        <a class="btn btn-outline-primary" href="/">Home</a>
+      </nav>
+
     </div>
-  {{/if}}
 
-  {{#if logged_in}}
-    <p>
-      <button class="btn btn-primary" id="newComment">Add Comment</button>
-    </p>
-
-    <!-- The New Comment Modal -->
-    <div id="commentModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>{{title}}</h2>
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+          <h4 class="fst-italic">About</h4>
+          <p class="mb-0">The Developer's Tech Blog is your one-stop shop for all news covering Software Development, Cloud Computing, Data Analytics, Machine Learning and Artificial Intelligence tools relevant to every professional in the Information Technology space.</p>
         </div>
-        <div class="modal-body">
-          <textarea class="comment-textarea" placeholder="New Comment"></textarea>
-        </div>
-          <button id="cancel">Cancel</button>
-          <button id="addComment" data-index="{{id}}">Submit</button>
-          <button id="updateComment" data-index="{{id}}" class="no-display">Update</button>
       </div>
-
     </div>
-
-    <!-- The Error Feedback Modal -->
-    <div id="errorModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header bg-danger">
-          <h2>SYSTEM ERROR!</h2>
-        </div>
-        <div class="modal-body">
-          <p id="commentError"></p>
-        </div>
-          <button id="okay">Okay</button>
-      </div>
-
-    </div>
-
-    <script src="/js/comments.js"></script>
-  {{/if}}
-  
+  </div>
 </div>
 
-
-
-
+<script src="/js/realComments.js"></script>

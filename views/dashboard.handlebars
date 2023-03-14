@@ -7,7 +7,6 @@
               <h3 class="blog-title">Your Blogs</h3>
             </div>
             {{#if posts.length}}
-              <div class="row mb-2">
                 <ul class="list-group">
                   {{#each posts as |post|}}
                     <li class="list-group-item"><a href="/posts/{{post.id}}">
@@ -16,8 +15,7 @@
                     <i id="delete-blog" class="fas fa-trash-alt float-right text-danger delete-note" data-id="{{post.id}}"></i>
                     </li>
                     {{/each}}
-                  </ul>                 
-                </div>
+                </ul>                 
             {{/if}}
           </div>
         </div>
@@ -26,13 +24,17 @@
             <input
             id="blogTitleElement"
             class="blog-title"
-            placeholder="Blog Title"
-            maxlength="40"
+            placeholder="Enter Blog Title Here"
+            maxlength="50"
             type="text"
             name="title"
           />
-          <label id="blogPicture" for="blogImage">Select a file:</label>
-          <input class="form-input" type="file" id="blogImage" name="image"/>
+          <div class="mb-3">
+            {{!-- <label id="blogPicture" for="blogImage">Select a file:</label> --}}
+            <label id="blogPicture" class="form-label" for="blogImage">Add Blog Header Image:</label>
+            <input type="file" class="form-control" id="blogImage" name="image">
+          </div>
+          {{!-- <input type="file" id="blogImage" name="image"/> --}}
           <div id="blog-editor" name="content" class="fluid-container"></div>
           </form>
         </div>

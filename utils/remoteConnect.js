@@ -1,6 +1,8 @@
+const path = require('path');
 const stream = require('stream');
 require('dotenv').config();
-const fs = require('fs');
+const process = require('process');
+// const fs = require('fs');
 const { google } = require('googleapis');
 
 const clientId = process.env.REMOTE_ID || '';
@@ -15,12 +17,11 @@ let folder;
 
 const createDriveClient = async () => {
 	const client = await new google.auth.OAuth2(clientId, clientSecret, redirectUri);
-
 	client.setCredentials({ refresh_token: refreshToken });
 
 	driveClient = await google.drive({
 		version: 'v3',
-		auth: client,
+		auth: client
 	});
 };
 
@@ -35,21 +36,16 @@ const createFolder = async (folderName) => {
 };
 
 const searchFolder = async (folderName) => {
-	return new Promise((resolve, reject) => {
-		driveClient.files.list(
-			{
-				q: `mimeType='application/vnd.google-apps.folder' and name='${folderName}'`,
-				fields: 'files(id, name)',
-			},
-			(err, res) => {
-				if (err) {
-					return reject(err);
-				}
+	try {
+		const res = await driveClient.files.list({
+			q: `mimeType='application/vnd.google-apps.folder' and name='${folderName}'`,
+			fields: 'files(id, name)',
+		});
 
-				return resolve(res.data.files ? res.data.files[0] : null);
-			},
-		);
-	});
+		return res.data.files ? res.data.files[0] : null;
+	} catch (err) {
+		throw err;
+	}
 };
 
 // single file upload
@@ -89,6 +85,7 @@ const saveFiles = async (files) => {
 	return results;
 };
 
+// single file delete
 const deleteFile = async (fieldValue) => {
 	try {
 		const fileId = fieldValue.split('id=')[1];
@@ -129,7 +126,6 @@ const listFiles = async () => {
 
 (async () => {
 	await createDriveClient();
-
 	folder = await searchFolder(folderName).catch((error) => {
 		console.error(error);
 		return null;

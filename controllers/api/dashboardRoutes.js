@@ -8,6 +8,7 @@ const upload = multer();
 // get a specific post
 router.get('/:id', withAuth, upload.any(), async (req, res) => {
   try {
+    console.log('\n....In Comment Route Get Method....\n');
     const blogData = await Posts.findByPk(req.params.id);
     res.status(200).json(blogData);
   } catch (err) {
