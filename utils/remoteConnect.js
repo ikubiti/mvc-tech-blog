@@ -2,7 +2,6 @@ const path = require('path');
 const stream = require('stream');
 require('dotenv').config();
 const process = require('process');
-// const fs = require('fs');
 const { google } = require('googleapis');
 
 const clientId = process.env.REMOTE_ID || '';

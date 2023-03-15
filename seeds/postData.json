@@ -4,7 +4,9 @@
     "content": "Server-side APIs allow developers to access data that companies and organizations provide through URLs, or endpoints. Developers can create applications that make requests to these endpoints, which respond with the requested data. Developers can then use this data in their own applications.\n\n For more information, please visit https://coding-boot-camp.github.io/full-stack/apis/api-resources.",
     "user_id": 1,
     "date_created": "2023-02-02 18: 55: 03",
-    "date_modified": "2023-02-23 18: 55: 03"
+    "date_modified": "2023-02-23 18: 55: 03",
+    "blog_image": "https://drive.google.com/uc?export=view&id=12tY0txAroIZhgAPBRJoBLKGWBBJmR-u9",
+    "image_alt": "API Selection"
   },
   {
     "title": "HTML Cheat Sheet",
@@ -20,34 +22,42 @@
     "content": "MySQL is widely considered the most reliable, scalable, and developer-friendly open source relational database management system. It powers the back end of many popular social, streaming, and service web applications.\n\nMySQL comes with a lot of new terminology and commands to learn, so you might find it challenging to get started. You can use this reference guide to review unfamiliar MySQL commands, terminology, and syntax.\n\n For more information, please visit https://coding-boot-camp.github.io/full-stack/mysql/mysql-reference-guide.",
     "user_id": 3,
     "date_created": "2023-02-05 18: 55: 03",
-    "date_modified": "2023-02-23 18: 55: 03"
+    "date_modified": "2023-02-23 18: 55: 03",
+    "blog_image": "https://drive.google.com/uc?export=view&id=1YlWrvEUQZAzxDe_2YFivV0egU1gL6yXv",
+    "image_alt": "Yosemite Falls Trails"
   },
   {
     "title": "Getting Started with Git",
     "content": "Code files are typically collaborative, as it is common for developers to build on each other's work. To facilitate this collaboration and ensure code integrity, many developers use Git for version control, and GitHub to securely store and share their code online.\n\nGit has a steep learning curve, but with practice, using it can become second nature to you. To help you get started, this guide explains how to set up your Git environment and introduces some commonly used Git and terminal commands.\n\n For more information, please visit https://coding-boot-camp.github.io/full-stack/git/getting-started-with-git.",
     "user_id": 1,
     "date_created": "2023-02-07 18: 55: 03",
-    "date_modified": "2023-02-23 18: 55: 03"
+    "date_modified": "2023-02-23 18: 55: 03",
+    "blog_image": "https://drive.google.com/uc?export=view&id=1u6j4yoEPD3jfa8KixbUQnS1Dn_qbbE06",
+    "image_alt": "Yosemite falls"
   },
   {
     "title": "Professional README Guide",
     "content": "A polished GitHub profile is an important part of your public identity as a developer. Why? For one thing, it will most likely be the first place that potential employers look to evaluate your skills and professionalism. And it also allows you to connect with and showcase your work to other developers, which can lead to interesting collaborations.\n\nA key component of your profile, and one that many new developers overlook, is the README file that's associated with each repository. A README file acts like a virtual storefront to a repository—it's the first thing that a person sees when they visit a repo on GitHub. But it's also much more than that: README files contain essential information about the repo's project. Thus, the quality of a README file can differentiate a high-quality repo from a low-quality one.\n\n For more information, please visit https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide.",
     "user_id": 4,
     "date_created": "2023-02-10 18: 55: 03",
-    "date_modified": "2023-02-23 18: 55: 03"
+    "date_modified": "2023-02-23 18: 55: 03",
+    "blog_image": "https://drive.google.com/uc?export=view&id=1xvZNzIDEVi9Xv5msUpWCo950rwcFDMXQ",
+    "image_alt": "Florida beach"
   },
   {
     "title": "How to Install NodeJS",
     "content": "Node.js is an asynchronous JavaScript runtime environment that executes JavaScript code outside of a browser. This allows developers to code the back ends of their applications using JavaScript instead of another programming language. Node.js runs scripts on the server side to produce dynamic webpage content before the page is sent to the user's web browser.\n\nNode.js has two versions. The LTS version is the most recent stable version that typically guarantees that critical bugs have been fixed or a period of time, often up to 30 months. Apps built for production or requiring a reliable Node.js version should always use LTS releases.\n\nThe Current version is the most recent release of Node.js. All new Node.js releases enter a current release period of six months. During this time, the content authors have time to identify major bugs and troubleshoot the build.\n\nSince users of the current version may face incompatibility issues and bugs that are not yet addressed, it is important to download the tested and stable LTS version to make sure your app -- and Node.js -- perform as expected\n\n For more information, please visit https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs.",
-    "user_id": 4,
+    "user_id": 5,
     "date_created": "2023-02-16 18: 55: 03",
-    "date_modified": "2023-02-23 18: 55: 03"
+    "date_modified": "2023-02-23 18: 55: 03",
+    "blog_image": "https://drive.google.com/uc?export=view&id=18x3IaS6sfeKQzfnnDRGP21GKFdEKiNzY",
+    "image_alt": "deploying-apps"
   },
   {
     "title": "Quilljs 101",
     "content": "Quill is currently my favorite rich text editor. The Quill content is described by the Deltas format. This format is a subset of JSON, well suited for many applications. But you sometime need to get raw HTML content for publishing on a web page or sending content via email.This page explains how to get raw HTML from JS or post the content of the form. The following has been tested with Quill version 1.3.6.",
-    "blog_image": "https://drive.google.com/uc?export=view&id=1CBQJQq20Lkhqe0FIOCYjIKfbmIRanICN",
-    "image_alt": "funEmoji-1677704295441.jpg",
+    "blog_image": "https://drive.google.com/uc?export=view&id=1upjNdtAyvOH9y93w8J3MbQTDcgTZhi8Z",
+    "image_alt": "Statue of Liberty, New York",
     "user_id": 2,
     "date_created": "2023-03-05 07:31:36",
     "date_modified": "2023-03-05 17:54:35"
@@ -57,7 +67,7 @@
     "content": "You've already deployed a Node.js application to Heroku using the Heroku CLI, but what about deploying an application that needs to connect to a database? In development, we get to use our local SQL servers for storing our application's data, but that won't work with a deployed application, since it won't have access to our machine. In this case, we need to do slightly more configuration on Heroku to deploy our app.In this guide, we'll walk through the steps we need to take to deploy an application backed by a SQL database to Heroku.",
     "blog_image": "https://drive.google.com/uc?export=view&id=1K_UAG5VvgFcYtHuiPyzONnC2lUO6-uAs",
     "image_alt": "App-to-App-Deployment-Feature.webp",
-    "user_id": 2,
+    "user_id": 6,
     "date_created": "2023-03-05 19:45:01",
     "date_modified": "2023-03-05 20:46:40"
   },
@@ -66,7 +76,7 @@
     "content": "MongoDB is a general purpose, document-based, distributed NoSQL database built for web application developers in the cloud era. It’s one of the most popular database choices for modern applications.\n\nTo install MongoDB on your machine, follow the instructions for your operating system below. Some of the images and versions mentioned below may be slightly different from the MongoDB web site, but the general instruction is the same.",
     "blog_image": "https://drive.google.com/uc?export=view&id=1knzlO8mW3qb76JuJxaZLiA7_G2MR-EDa",
     "image_alt": "Mongo database",
-    "user_id": 2,
+    "user_id": 3,
     "date_created": "2023-03-10 17:25:42",
     "date_modified": "2023-03-13 12:24:16"
   }
