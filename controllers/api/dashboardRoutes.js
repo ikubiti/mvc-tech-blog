@@ -8,7 +8,6 @@ const upload = multer();
 // get a specific post
 router.get('/:id', withAuth, upload.any(), async (req, res) => {
   try {
-    console.log('\n....In Comment Route Get Method....\n');
     const blogData = await Posts.findByPk(req.params.id);
     res.status(200).json(blogData);
   } catch (err) {
@@ -73,6 +72,7 @@ router.put('/:id', withAuth, upload.any(), async (req, res) => {
 
     // The image variable is a placeholder for our uploaded image.
     const { body, files } = req;
+    console.log('begin: ', body);
 
     if (files && files.length > 0) {
       if (blogData.blog_image && blogData.blog_image.length > 0) {
@@ -83,6 +83,7 @@ router.put('/:id', withAuth, upload.any(), async (req, res) => {
       blogData.image_alt = result.name;
     }
 
+    console.log('end: ', body);
     // Reconstruct the blog with parts of the old and new data.
     const newBlog = {
       title: body.title ? body.title : blogData.title,

@@ -4,48 +4,12 @@ require('dotenv').config();
 const process = require('process');
 const { google } = require('googleapis');
 
-const clientId = process.env.REMOTE_ID || '';
-const clientSecret = process.env.REMOTE_SECRET || '';
-const redirectUri = process.env.REMOTE_URI || '';
-const refreshToken = process.env.REMOTE_TOKEN || '';
+const folder = process.env.DB_FOLDER_NAME || '';
+const SCOPES = ["https://www.googleapis.com/auth/drive"];
 const resource = { "role": "reader", "type": "anyone" };
 
+const KEYFILEPATH = path.join(__dirname, "app-credentials.json");
 let driveClient;
-const folderName = 'TECH-BLOG';
-let folder;
-
-const createDriveClient = async () => {
-	const client = await new google.auth.OAuth2(clientId, clientSecret, redirectUri);
-	client.setCredentials({ refresh_token: refreshToken });
-
-	driveClient = await google.drive({
-		version: 'v3',
-		auth: client
-	});
-};
-
-const createFolder = async (folderName) => {
-	return await driveClient.files.create({
-		resource: {
-			name: folderName,
-			mimeType: 'application/vnd.google-apps.folder',
-		},
-		fields: 'id, name',
-	});
-};
-
-const searchFolder = async (folderName) => {
-	try {
-		const res = await driveClient.files.list({
-			q: `mimeType='application/vnd.google-apps.folder' and name='${folderName}'`,
-			fields: 'files(id, name)',
-		});
-
-		return res.data.files ? res.data.files[0] : null;
-	} catch (err) {
-		throw err;
-	}
-};
 
 // single file upload
 const saveFile = async (aFile) => {
@@ -55,7 +19,7 @@ const saveFile = async (aFile) => {
 		requestBody: {
 			name: aFile.originalname,
 			mimeType: aFile.mimeType,
-			parents: folder.id ? [folder.id] : [],
+			parents: folder ? [folder] : [],
 		},
 		media: {
 			mimeType: aFile.mimeType,
@@ -124,15 +88,15 @@ const listFiles = async () => {
 };
 
 (async () => {
-	await createDriveClient();
-	folder = await searchFolder(folderName).catch((error) => {
-		console.error(error);
-		return null;
+	const client = new google.auth.GoogleAuth({
+		keyFile: KEYFILEPATH,
+		scopes: SCOPES,
 	});
 
-	if (!folder) {
-		folder = await createFolder(folderName);
-	}
+	driveClient = await google.drive({
+		version: 'v3',
+		auth: client
+	});
 })();
 
 module.exports = {
