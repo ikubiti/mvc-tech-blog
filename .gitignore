@@ -105,3 +105,4 @@ dist
 .tern-port
 googleAPI-1.json
 techblog-4a01dee95718.json
+utils/app-credentials.json
