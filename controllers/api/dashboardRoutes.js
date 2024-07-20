@@ -91,7 +91,6 @@ router.put('/:id', withAuth, upload.any(), async (req, res) => {
       blogData.image_alt = files[0].originalname;
     }
 
-    // console.log('end: ', body);
     // Reconstruct the blog with parts of the old and new data.
     const newBlog = {
       title: body.title ? body.title : blogData.title,
