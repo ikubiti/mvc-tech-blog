@@ -9,7 +9,6 @@ router.post('/', upload.any(), async (req, res) => {
   try {
     // The image variable is a placeholder for our uploaded image.
     const { body, files } = req;
-    // console.log(files);
 
     let result = await remoteConnect.uploadFile(
       files[0].buffer,
