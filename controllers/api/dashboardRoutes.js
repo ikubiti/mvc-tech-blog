@@ -8,7 +8,6 @@ const upload = multer();
 // get a specific post
 router.get('/:id', withAuth, upload.any(), async (req, res) => {
   try {
-    console.log('\n....In Comment Route Get Method....\n');
     const blogData = await Posts.findByPk(req.params.id);
     res.status(200).json(blogData);
   } catch (err) {
@@ -21,17 +20,21 @@ router.post('/', withAuth, upload.any(), async (req, res) => {
   try {
     // Remotely save the blog image
     const { body, files } = req;
-    let result = { file_id: null, name: null };
+    let result = null;
     if (files.length > 0) {
-      result = await remoteConnect.saveFiles(files);
+      result = await remoteConnect.uploadFile(
+        files[0].buffer,
+        files[0].originalname,
+        files[0].mimetype
+      );
     }
 
     // Create a new instance of the user model.
     let newBlog = {
       title: body.title,
       content: body.content,
-      blog_image: result.file_id ? `https://drive.google.com/uc?export=view&id=${result.file_id}` : '',
-      image_alt: result.name ? result.name : '',
+      blog_image: result ? result : '',
+      image_alt: result ? files[0].originalname : '',
       user_id: req.session.user_id,
     };
 
@@ -73,14 +76,19 @@ router.put('/:id', withAuth, upload.any(), async (req, res) => {
 
     // The image variable is a placeholder for our uploaded image.
     const { body, files } = req;
+    console.log('begin: ', body);
 
     if (files && files.length > 0) {
       if (blogData.blog_image && blogData.blog_image.length > 0) {
         await remoteConnect.deleteFile(blogData.blog_image);
       }
-      const result = await remoteConnect.saveFiles(files);
-      blogData.blog_image = `https://drive.google.com/uc?export=view&id=${result.file_id}`;
-      blogData.image_alt = result.name;
+      blogData.blog_image = await remoteConnect.uploadFile(
+        files[0].buffer,
+        files[0].originalname,
+        files[0].mimetype
+      );
+
+      blogData.image_alt = files[0].originalname;
     }
 
     // Reconstruct the blog with parts of the old and new data.
@@ -93,19 +101,18 @@ router.put('/:id', withAuth, upload.any(), async (req, res) => {
       user_id: blogData.user_id,
     };
 
-    const updatedBlog = await Posts.update(newBlog,
-      {
-        where: { id: req.params.id }
-      });
+    const updatedBlog = await Posts.update(newBlog, {
+      where: { id: req.params.id },
+    });
 
     if (!updatedBlog) {
       return res.status(404).json({ message: 'No User found with that id!' });
-    };
+    }
 
     res.status(200).json(updatedBlog);
   } catch (err) {
     res.status(404).json(err);
-  };
+  }
 });
 
 module.exports = router;
