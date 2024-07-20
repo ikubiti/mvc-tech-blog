@@ -1,58 +1,83 @@
 [
   {
+    "id": 1,
     "name": "Kwame Adom",
     "username": "KwameAdom",
     "email": "kwameadom@got.us",
     "password": "HonorDisc1234",
-    "avatar": "https://drive.google.com/uc?export=view&id=1yiFMU2b5ZyFdA3sguFYmztHYVagKNd2r",
+    "avatar": "https://d16x0kpdjyglrc.cloudfront.net/mvctech/Kwame.webp",
     "image_alt": "Kwame Adom"
   },
   {
+    "id": 2,
     "name": "Brett McQuail",
     "username": "BrettMcQuail",
     "email": "brettmcquail@gmail.com",
     "password": "LoudNoise9483",
-    "avatar": "https://drive.google.com/uc?export=view&id=13WAEC-HN43qAVQo1h3TCPVwt_ntexU96",
+    "avatar": "https://d16x0kpdjyglrc.cloudfront.net/mvctech/Brett.png",
     "image_alt": "Brett McQuail"
   },
   {
+    "id": 3,
     "name": "Jeff Jackson",
     "username": "AppleJack",
     "email": "jefferson112@hotmail.com",
     "password": "password12345",
-    "avatar": "https://drive.google.com/uc?export=view&id=1ABcRQgL_itsiSWljOYDSirskcrxivLA7",
+    "avatar": "https://d16x0kpdjyglrc.cloudfront.net/mvctech/Jeff.jpg",
     "image_alt": "Jeff Jackson"
   },
   {
+    "id": 4,
     "name": "Julio Sanchez",
     "username": "JulioBear",
     "email": "juliosanchez@icloud.com",
     "password": "!Take975Away",
-    "avatar": "https://drive.google.com/uc?export=view&id=11hFKiL0qORvOwRi9U8mO0oWeuBGpSu3p",
+    "avatar": "https://d16x0kpdjyglrc.cloudfront.net/mvctech/Julio.png",
     "image_alt": "Julio Sanchez"
   },
   {
+    "id": 5,
     "name": "Emese Gris",
     "username": "EmilyGris",
     "email": "grisslybear@hotmail.com",
     "password": "IamtheOne1",
-    "avatar": "https://drive.google.com/uc?export=view&id=1A7TdAaEXuNNhNpUFAhJ1Z2JlYG2xzsEo",
+    "avatar": "https://d16x0kpdjyglrc.cloudfront.net/mvctech/Emese.png",
     "image_alt": "Emese Gris"
   },
   {
+    "id": 6,
     "name": "Thor Odinson",
     "username": "TheMightyOdinson",
     "email": "godofthunder@asgard.com",
     "password": "1MightiestOne",
-    "avatar": "https://drive.google.com/uc?export=view&id=1H0dGmoA6BvrVDCOaW4dItjeXsQ6wdtUv",
+    "avatar": "https://d16x0kpdjyglrc.cloudfront.net/mvctech/Thor.jpg",
     "image_alt": "Thor Odinson"
   },
   {
+    "id": 7,
     "name": "Arya Stark",
     "username": "arya",
     "email": "aryastark@got.com",
     "password": "westerios1see",
-    "avatar": "https://drive.google.com/uc?export=view&id=10SIUMfY7mTzaJ6KZ4jGewhTG2u1_iyBC",
+    "avatar": "https://d16x0kpdjyglrc.cloudfront.net/mvctech/Arya.png",
     "image_alt": "Arya Stark"
+  },
+  {
+    "id": 8,
+    "name": "Kallai Kubiti",
+    "username": "Kallai",
+    "email": "kubitikallai@gmail.com",
+    "avatar": "https://d16x0kpdjyglrc.cloudfront.net/mvctech/Kallai.jpg",
+    "image_alt": "Kallai Kubiti",
+    "password": "TheseAreTheDays1"
+  },
+  {
+    "id": 9,
+    "name": "Matt Dante",
+    "username": "mattdante",
+    "email": "mattdante@gmail.com",
+    "avatar": "https://d16x0kpdjyglrc.cloudfront.net/mvctech/Dante.jpg",
+    "image_alt": "Matt Dante",
+    "password": "TheseAreTheDays2"
   }
 ]

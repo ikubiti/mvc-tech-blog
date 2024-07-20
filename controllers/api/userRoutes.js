@@ -9,17 +9,21 @@ router.post('/', upload.any(), async (req, res) => {
   try {
     // The image variable is a placeholder for our uploaded image.
     const { body, files } = req;
-    console.log(files);
+    // console.log(files);
 
-    let result = await remoteConnect.saveFiles(files);
+    let result = await remoteConnect.uploadFile(
+      files[0].buffer,
+      files[0].originalname,
+      files[0].mimetype
+    );
 
     // Create a new instance of the user model.
     let newUser = {
       name: body.fullName,
       username: body.username,
       email: body.email,
-      avatar: `https://drive.google.com/uc?export=view&id=${result.file_id}`,
-      image_alt: result.name,
+      avatar: result,
+      image_alt: files[0].originalname,
       password: body.password,
     };
     const userData = await Users.create(newUser);
@@ -39,21 +43,19 @@ router.post('/', upload.any(), async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await Users.findOne({ where: { username: req.body.username } });
+    const userData = await Users.findOne({
+      where: { username: req.body.username },
+    });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username, please try again' });
+      res.status(400).json({ message: 'Incorrect username, please try again' });
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect password, please try again' });
+      res.status(400).json({ message: 'Incorrect password, please try again' });
       return;
     }
 
@@ -66,7 +68,6 @@ router.post('/login', async (req, res) => {
 
       res.json({ user: userData, message: 'You are now logged in!' });
     });
-
   } catch (err) {
     res.status(400).json(err);
   }
@@ -87,14 +88,13 @@ router.get('/', withAuth, async (req, res) => {
   try {
     const userData = await Users.findAll({
       exclude: ['password'],
-    }
-    );
+    });
     const users = userData.map((user) => user.get({ plain: true }));
 
     res.status(200).json(users);
   } catch (err) {
     return res.status(404).json(err), console.log(err);
-  };
+  }
 });
 
 // GET User by id
@@ -104,12 +104,14 @@ router.get('/:id', withAuth, async (req, res) => {
       exclude: ['password'],
     });
 
-    if (!userData) { return res.status(404).json({ message: 'No User found with that id!' }); };
+    if (!userData) {
+      return res.status(404).json({ message: 'No User found with that id!' });
+    }
 
     res.status(200).json(userData);
   } catch (err) {
     return res.status(404).json(err);
-  };
+  }
 });
 
 // UPDATE a User
@@ -121,10 +123,13 @@ router.put('/:id', withAuth, upload.any(), async (req, res) => {
     const { body, files } = req;
 
     if (files && files.length > 0) {
-      let result = await remoteConnect.saveFiles(files);
       await remoteConnect.deleteFile(userData.avatar);
-      userData.avatar = `https://drive.google.com/uc?export=view&id=${result.file_id}`;
-      userData.image_alt = result.name;
+      userData.avatar = await remoteConnect.uploadFile(
+        files[0].buffer,
+        files[0].originalname,
+        files[0].mimetype
+      );
+      userData.image_alt = files[0].originalname;
     }
 
     // Assuming the body uses our naming conventions
@@ -137,19 +142,18 @@ router.put('/:id', withAuth, upload.any(), async (req, res) => {
       password: body.password ? body.password : userData.password,
     };
 
-    const updatedUser = await Users.update(newUser,
-      {
-        where: { id: req.params.id }
-      });
+    const updatedUser = await Users.update(newUser, {
+      where: { id: req.params.id },
+    });
 
     if (!updatedUser) {
       return res.status(404).json({ message: 'No User found with that id!' });
-    };
+    }
 
     res.status(200).json(updatedUser);
   } catch (err) {
     res.status(404).json(err);
-  };
+  }
 });
 
 // DELETE a User
@@ -158,17 +162,17 @@ router.delete('/:id', withAuth, async (req, res) => {
     let userData = await Users.findByPk(req.params.id);
     await remoteConnect.deleteFile(userData.avatar);
     userData = await Users.destroy({
-      where: { id: req.params.id }
+      where: { id: req.params.id },
     });
 
     if (!userData) {
       return res.status(404).json({ message: 'No User found with this id!' });
-    };
+    }
 
     res.status(200).json(userData);
   } catch (err) {
     res.status(500).json(err);
-  };
+  }
 });
 
 module.exports = router;

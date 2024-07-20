@@ -1,134 +1,198 @@
 [
 	{
-		"post_id": 1,
+		"id": 1,
 		"comment": "This was quite an interesting module, for the first time, my front-end project was alive with live data and capable of providing useful information to end users.",
+		"date_posted": "2023-02-22 18:55:03",
 		"user_id": 5,
-		"date_posted": "2023-02-22 18: 55: 03"
+		"post_id": 1
 	},
 	{
-		"post_id": 2,
+		"id": 2,
 		"comment": "A nice introduction to web development, the concepts surrounding HTML were quite novel to me. I did level up my knowledge of HTML but I still have a long way to go though!",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 6,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 2
 	},
 	{
-		"post_id": 3,
+		"id": 3,
 		"comment": "MySQL is another unconventional programming paradigm to learn and it is a bit challenging to wrap my head around it. However, for a quirky language, it offers unprecedented power to the developer and assists us to create absolutely wonderful and productive applications.",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 1,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 3
 	},
 	{
-		"post_id": 4,
+		"id": 4,
 		"comment": "This piece greatly eased my ability to learn and use git to keep my applications version-controlled. Brilliant write up!!!",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 3,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 4
 	},
 	{
-		"post_id": 5,
+		"id": 5,
 		"comment": "As a budding developer, it's relatively easy to focus on the project and underrate the README file. This blog reminded me about its importance and introduced me to a standard implementation template.",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 2,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 5
 	},
 	{
-		"post_id": 6,
+		"id": 6,
 		"comment": "To suggest that Node.js powerful is an understatement. It comes as no surprise that it's powered by the most popular programming language in the world. It's been both challenging and fun working with Node.",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 6,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 6
 	},
 	{
-		"post_id": 1,
+		"id": 7,
 		"comment": "Working with API's was certainly interesting and it was curiously easy to comprehend.",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 3,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 1
 	},
 	{
-		"post_id": 2,
+		"id": 8,
 		"comment": "The HTML language is an unsung hero of web development, it certainly deserves more recognition for its role",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 5,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 2
 	},
 	{
-		"post_id": 3,
+		"id": 9,
 		"comment": "Learning MySQL is a great way to learn and use SQL and it opens endless possibilities.",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 4,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 3
 	},
 	{
-		"post_id": 4,
+		"id": 10,
 		"comment": "Git is a fundamental requirement for collaborative and personal software development. It's such a useful skill set to possess.",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 2,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 4
 	},
 	{
-		"post_id": 5,
+		"id": 11,
 		"comment": "I loved this template, it made preparing my project README files less challenging. This blog is a must read for all beginner developers.",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 5,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 5
 	},
 	{
-		"post_id": 6,
+		"id": 12,
 		"comment": "My journey with Node.js has been filled with a lot of wow moments, its power is unbelievable.",
+		"date_posted": "2023-02-23 18:55:03",
 		"user_id": 1,
-		"date_posted": "2023-02-23 18: 55: 03"
+		"post_id": 6
 	},
 	{
-		"post_id": 4,
+		"id": 13,
 		"comment": "My journey with Node.js has been filled with a lot of wow moments, its power is unbelievable.",
+		"date_posted": "2023-02-25 20:28:55",
 		"user_id": 1,
-		"date_posted": "2023-02-25 20: 28: 55"
+		"post_id": 4
 	},
 	{
-		"post_id": 5,
+		"id": 14,
 		"comment": "I do agree that this is a must read by all beginner developers, its a treasure trove of best practices.",
+		"date_posted": "2023-02-25 21:07:03",
 		"user_id": 1,
-		"date_posted": "2023-02-25 21: 07: 03"
+		"post_id": 5
 	},
 	{
-		"post_id": 4,
+		"id": 15,
 		"comment": "Seeing this application work so flawlessly is impressive.",
+		"date_posted": "2023-02-26 06:34:21",
 		"user_id": 2,
-		"date_posted": "2023-02-26 06: 34: 21"
+		"post_id": 4
 	},
 	{
-		"post_id": 6,
+		"id": 16,
 		"comment": "A true powerhouse in web and software development !!",
+		"date_posted": "2023-02-26 06:37:10",
 		"user_id": 2,
-		"date_posted": "2023-02-26 06: 37: 10"
+		"post_id": 6
 	},
 	{
-		"post_id": 6,
-		"comment": "However, Node is getting some competition from Deno and Bun js. They promise to make development even easier while improving on the app’s performance. It’s going to get truly interesting",
+		"id": 17,
+		"comment": "However, Node is getting some competition from Deno and Bun js. They promise to make development even easier while improving on the app\u2019s performance. It\u2019s going to get truly interesting",
+		"date_posted": "2023-02-27 06:40:18",
 		"user_id": 2,
-		"date_posted": "2023-02-27 06: 40: 18"
+		"post_id": 6
 	},
 	{
-		"post_id": 1,
-		"comment": "Using server side APIs boosts the functionality of your code, it’s such a powerhouse of productivity.",
+		"id": 18,
+		"comment": "Using server side APIs boosts the functionality of your code, it\u2019s such a powerhouse of productivity.",
+		"date_posted": "2023-02-28 14:58:46",
 		"user_id": 2,
-		"date_posted": "2023-02-28 14: 58: 46"
+		"post_id": 1
 	},
 	{
-		"post_id": 2,
+		"id": 19,
 		"comment": "Interesting read, a truly nice introduction to web development.",
+		"date_posted": "2023-03-05 20:20:27",
 		"user_id": 3,
-		"date_posted": "2023-03-05 20:20:27"
+		"post_id": 2
 	},
 	{
-		"post_id": 9,
-		"comment": "Kwame, this blog has depth and clarity, thanks.",
+		"id": 20,
+		"comment": "Emese, this blog has depth and clarity, thanks.",
+		"date_posted": "2023-03-18 16:07:10",
 		"user_id": 4,
-		"date_posted": "2023-03-06 20:20:27"
+		"post_id": 9
 	},
 	{
-		"post_id": 7,
-		"comment": "Quills is an impressive Rich Text Editor, it’s a great tool for web developers.",
+		"id": 21,
+		"comment": "Quills is an impressive Rich Text Editor, it\u2019s a great tool for web developers.",
+		"date_posted": "2023-03-11 02:32:19",
 		"user_id": 3,
-		"date_posted": "2023-03-11 02:32:19"
+		"post_id": 7
 	},
 	{
-		"post_id": 1,
+		"id": 22,
 		"comment": "Nice one, Jeff, I needed to read this.",
+		"date_posted": "2023-03-13 17:07:09",
 		"user_id": 7,
-		"date_posted": "2023-03-13 17:07:09"
+		"post_id": 1
+	},
+	{
+		"id": 23,
+		"comment": "Hi, I love this image",
+		"date_posted": "2023-03-20 00:05:41",
+		"user_id": 4,
+		"post_id": 10
+	},
+	{
+		"id": 24,
+		"comment": "Thank you",
+		"date_posted": "2023-03-20 00:06:08",
+		"user_id": 8,
+		"post_id": 10
+	},
+	{
+		"id": 26,
+		"comment": "its great!",
+		"date_posted": "2023-03-20 00:06:49",
+		"user_id": 8,
+		"post_id": 10
+	},
+	{
+		"id": 27,
+		"comment": "Awesome",
+		"date_posted": "2023-03-21 13:24:15",
+		"user_id": 1,
+		"post_id": 2
+	},
+	{
+		"id": 29,
+		"comment": "I like the WYISWYG editor",
+		"date_posted": "2023-03-24 07:47:29",
+		"user_id": 9,
+		"post_id": 1
+	},
+	{
+		"id": 30,
+		"comment": "Well, it sure is a thing of beauty.",
+		"date_posted": "2023-03-24 23:59:35",
+		"user_id": 1,
+		"post_id": 10
 	}
 ]
